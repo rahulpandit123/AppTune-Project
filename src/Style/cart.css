@@ -1,0 +1,10 @@
+.priceTotal {
+  margin-right: 124px;
+  float: right;
+  margin-top: 10px;
+  /* margin-bottom: 50px; */
+  font-size: larger;
+  font-weight: 800;
+  border: black 2px solid;
+  background-color: coral;
+}

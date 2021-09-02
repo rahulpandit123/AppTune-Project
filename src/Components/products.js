@@ -5,7 +5,7 @@ import Header from "./header";
 import Product from "./product";
 import { data } from "./data";
 
-const Products = () => {
+const Products = ({ items, setItems }) => {
   const [item, setItem] = useState(data);
   return (
     <>
@@ -14,7 +14,9 @@ const Products = () => {
         <div className='row'>
           <div className='col'>
             {item.map((curItem) => {
-              return <Product key={curItem.id} {...curItem} />;
+              return (
+                <Product key={curItem.id} {...curItem} setItems={setItems} />
+              );
             })}
           </div>
           {/* <div className='col'>

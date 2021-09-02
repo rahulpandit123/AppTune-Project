@@ -1,4 +1,5 @@
 import logo from "./logo.svg";
+import React, { useState } from "react";
 import "./App.css";
 import Footer from "./Components/footer";
 import Header from "./Components/header";
@@ -12,11 +13,16 @@ import {
 } from "react-router-dom";
 
 function App() {
+  const [items, setItems] = useState([]);
   return (
     <Router>
       <Switch>
-        <Route exact path='/' component={Products} />
-        <Route path='/cart' component={Cart} />
+        <Route exact path='/'>
+          <Products items={items} setItems={setItems} />
+        </Route>
+        <Route path='/cart'>
+          <Cart items={items} />
+        </Route>
       </Switch>
     </Router>
   );

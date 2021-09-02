@@ -4,13 +4,18 @@ import "../Style/products.css";
 import { Redirect } from "react-router-dom";
 import Cart from "./cart";
 
-const product = ({ id, title, description, price, img, quantity }) => {
+const product = ({
+  id,
+  title,
+  description,
+  price,
+  img,
+  quantity,
+  setItems,
+}) => {
   const cartHandler = () => {
-    // Redirect = { Cart };
-    let item;
-    // window.location.href = (
+    setItems((items) => [...items, id]);
 
-    // );
     console.log("id -", id);
   };
   return (
@@ -20,13 +25,7 @@ const product = ({ id, title, description, price, img, quantity }) => {
         <h4 className='title'> {title}</h4>
         <p className='desc'>{description}</p>
         <h3 className='price'>{price}</h3>
-        <button
-          className='btn btn-primary m-2 '
-          onClick={
-            <Cart
-              itemDeatail={(id, title, description, price, img, quantity)}
-            />
-          }>
+        <button className='btn btn-primary m-2 ' onClick={cartHandler}>
           Add to Cart
         </button>
       </div>
